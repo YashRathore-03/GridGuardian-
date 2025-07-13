@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyclone Outage Risk Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Cyclone Outage Risk Monitor</h1>
+            <div class="header__status">
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span class="status-text" id="statusText">Connecting...</span>
+                </div>
+                <div class="last-update" id="lastUpdate">Last Update: --:--:--</div>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- Parameter Cards Grid -->
+            <section class="parameters-grid">
+                <div class="parameter-card" id="windSpeedCard">
+                    <div class="parameter-card__header">
+                        <h3 class="parameter-card__title">Wind Speed</h3>
+                        <span class="parameter-card__unit">mph</span>
+                    </div>
+                    <div class="parameter-card__value" id="windSpeedValue">--</div>
+                    <div class="parameter-card__status" id="windSpeedStatus">--</div>
+                </div>
+
+                <div class="parameter-card" id="precipitationCard">
+                    <div class="parameter-card__header">
+                        <h3 class="parameter-card__title">Precipitation</h3>
+                        <span class="parameter-card__unit">mm/hr</span>
+                    </div>
+                    <div class="parameter-card__value" id="precipitationValue">--</div>
+                    <div class="parameter-card__status" id="precipitationStatus">--</div>
+                </div>
+
+                <div class="parameter-card" id="floodRiskCard">
+                    <div class="parameter-card__header">
+                        <h3 class="parameter-card__title">Flood Risk</h3>
+                        <span class="parameter-card__unit">scale</span>
+                    </div>
+                    <div class="parameter-card__value" id="floodRiskValue">--</div>
+                    <div class="parameter-card__status" id="floodRiskStatus">--</div>
+                </div>
+
+                <div class="parameter-card" id="cycloneCategoryCard">
+                    <div class="parameter-card__header">
+                        <h3 class="parameter-card__title">Cyclone Category</h3>
+                        <span class="parameter-card__unit">category</span>
+                    </div>
+                    <div class="parameter-card__value" id="cycloneCategoryValue">--</div>
+                    <div class="parameter-card__status" id="cycloneCategoryStatus">--</div>
+                </div>
+
+                <div class="parameter-card" id="vegetationDensityCard">
+                    <div class="parameter-card__header">
+                        <h3 class="parameter-card__title">Vegetation Density</h3>
+                        <span class="parameter-card__unit">scale</span>
+                    </div>
+                    <div class="parameter-card__value" id="vegetationDensityValue">--</div>
+                    <div class="parameter-card__status" id="vegetationDensityStatus">--</div>
+                </div>
+            </section>
+
+            <!-- Outage Risk Score -->
+            <section class="risk-section">
+                <div class="risk-card" id="riskCard">
+                    <h2 class="risk-card__title">Outage Risk Score</h2>
+                    <div class="risk-card__score" id="riskScore">--%</div>
+                    <div class="risk-card__level" id="riskLevel">--</div>
+                    <div class="risk-card__description">
+                        Based on current cyclone conditions and infrastructure vulnerability
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <h2 class="charts-section__title">Real-time Trends</h2>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3 class="chart-title">Wind Speed</h3>
+                        <canvas id="windSpeedChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 class="chart-title">Precipitation</h3>
+                        <canvas id="precipitationChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 class="chart-title">Flood Risk</h3>
+                        <canvas id="floodRiskChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 class="chart-title">Cyclone Category</h3>
+                        <canvas id="cycloneCategoryChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 class="chart-title">Vegetation Density</h3>
+                        <canvas id="vegetationDensityChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 class="chart-title">Outage Risk</h3>
+                        <canvas id="outageRiskChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
